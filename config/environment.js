@@ -9,12 +9,22 @@ module.exports = function(environment) {
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
-        // e.g. 'with-controller': true
+        // e.g. EMBER_NATIVE_DECORATOR_SUPPORT: true
       },
       EXTEND_PROTOTYPES: {
         // Prevent Ember Data from overriding Date.parse.
         Date: false
       }
+    },
+    contentSecurityPolicy: {
+      'script-src': "'self' 'unsafe-inline'",
+      'connect-src':
+        "'self' https://*.nextrelease.io https://*.herokuapp.com http://localhost:* https://app.getsentry.com",
+      'default-src': "'none'",
+      'style-src': "'self' 'unsafe-inline' https://fonts.googleapis.com",
+      'font-src': "'self' fonts.gstatic.com",
+      'img-src': "'self' *.gravatar.com *.wp.com data:",
+      'media-src': "'self'"
     },
 
     APP: {
